@@ -95,6 +95,6 @@ public class ReceiptsFileWorker {
         ReceiptsFileWorker receiptsFileWorker = new ReceiptsFileWorker();
         receiptsFileWorker.WriteFile(pathNoError);
         ReceiptsFileWorker receiptsFileWorker1 = new ReceiptsFileWorker();
-        receiptsFileWorker.WriteFile(pathError);
+        receiptsFileWorker1.WriteFile(pathError);
     }
 }
