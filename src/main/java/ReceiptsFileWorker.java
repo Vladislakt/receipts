@@ -1,9 +1,9 @@
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class ReceiptsFileWorker {
     ArrayList<String> months; //считанные месяцы
     ArrayList<String> services; //считанные услуги
@@ -22,7 +22,7 @@ public class ReceiptsFileWorker {
         BufferedReader reader = new BufferedReader(fr);
         String line = reader.readLine();
         while (line != null) {
-            String[] words = line.split("\\.|_");
+            String[] words = line.split("[._]");
             services.add(words[0]);
             months.add(words[1]);
             pairs.add(new String[]{words[0], words[1]});
