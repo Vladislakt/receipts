@@ -87,4 +87,14 @@ public class ReceiptsFileWorker {
         }
         text = new String(textPaid.toString().getBytes(), UTF_8) + "Не оплачено:\n" + new String(textNoPaid.toString().getBytes(), UTF_8);
     }
+
+    public static void main(String[] args) {
+        String pathNoError = "чеки.txt";
+        String pathError = "ошибка.txt";
+
+        ReceiptsFileWorker receiptsFileWorker = new ReceiptsFileWorker();
+        receiptsFileWorker.WriteFile(pathNoError);
+        ReceiptsFileWorker receiptsFileWorker1 = new ReceiptsFileWorker();
+        receiptsFileWorker.WriteFile(pathError);
+    }
 }
