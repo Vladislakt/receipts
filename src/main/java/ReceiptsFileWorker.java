@@ -9,6 +9,7 @@ public class ReceiptsFileWorker {
     ArrayList<String> months; //считанные мес€цы
     ArrayList<String> services; //считанные услуги
     ArrayList<ArrayList<String>> connection = new ArrayList<>(); // считанные услуги дл€ каждого мес€ца
+    String text = "";
     /**
      * —читывание файла в заданном заданием формате
      * @param path путь к файлу
@@ -51,5 +52,25 @@ public class ReceiptsFileWorker {
      */
     public static void WriteFile(String path, String text) {
 
+    }
+
+    public void Analyse() {
+        StringBuilder textPaid = new StringBuilder();
+        StringBuilder textNoPaid = new StringBuilder();
+        for (String month : months) {
+            int pos = months.indexOf(month);
+            if(!connection.get(pos).containsAll(services)) {
+                textNoPaid.append(month).append(":\n");
+            }
+            for(String service : services) {
+                if(connection.get(pos).contains(service)) {
+                    textPaid.append("/").append(month).append("/").append(service).append("_").append(month).append(".pdf\n");
+                }
+                else {
+                    textNoPaid.append(service).append("\n");
+                }
+            }
+        }
+        text = textPaid + "Ќе оплачено:\n" + textNoPaid;
     }
 }
